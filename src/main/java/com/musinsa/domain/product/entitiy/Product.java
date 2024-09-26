@@ -12,11 +12,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 @Getter
 @Builder
@@ -54,6 +56,13 @@ public class Product extends BaseTimeEntity {
 
   @Column
   private Boolean deleteYn = false;
+
+  @PrePersist
+  private void prePersist() {
+    if (this.deleteYn == null) {
+      this.deleteYn = false; // 기본값 설정
+    }
+  }
 
   public void updateProduct(Product product) {
     this.brand = product.getBrand();

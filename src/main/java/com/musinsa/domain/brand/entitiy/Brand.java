@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import java.util.ArrayList;
@@ -44,6 +45,13 @@ public class Brand extends BaseTimeEntity {
 
   @Column
   private Boolean deleteYn = false;
+
+  @PrePersist
+  private void prePersist() {
+    if (this.deleteYn == null) {
+      this.deleteYn = false; // 기본값 설정
+    }
+  }
 
   public void updateBrandName(String brandName) {
     this.brandName = brandName;
