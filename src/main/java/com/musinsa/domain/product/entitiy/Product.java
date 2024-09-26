@@ -2,8 +2,6 @@ package com.musinsa.domain.product.entitiy;
 
 import com.musinsa.domain.brand.entitiy.Brand;
 import com.musinsa.domain.category.entitiy.Category;
-import com.musinsa.domain.price.entitiy.CategoryHighPrice;
-import com.musinsa.domain.price.entitiy.CategoryLowPrice;
 import com.musinsa.global.jpa.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

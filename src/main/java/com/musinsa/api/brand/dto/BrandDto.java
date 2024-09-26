@@ -1,6 +1,5 @@
 package com.musinsa.api.brand.dto;
 
-import com.musinsa.domain.brand.entitiy.Brand;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

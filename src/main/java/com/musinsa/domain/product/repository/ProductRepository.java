@@ -12,12 +12,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
   Optional<Product> findByProductIdAndDeleteYnFalse(Long productId);
 
-//  @Query(value = "SELECT p FROM Product p WHERE p.deleteYn = false ORDER BY p.productPrice ASC LIMIT 1", nativeQuery = true)
-//  Optional<Product> findLowestPrice();
-//
-//  @Query(value = "SELECT p FROM Product p WHERE p.deleteYn = false ORDER BY p.productPrice DESC LIMIT 1", nativeQuery = true)
-//  Optional<Product> findHighestPrice();
-
   @Query("SELECT p FROM Product p WHERE p.brand = :brand AND p.category = :category AND p.deleteYn = false ORDER BY p.productPrice ASC LIMIT 1")
   Optional<Product> findLowestPriceByBrandAndCategory(@Param("brand") Brand brand, @Param("category") Category category);
 

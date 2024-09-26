@@ -1,6 +1,5 @@
 package com.musinsa.domain.price.service;
 
-import com.musinsa.api.price.dto.CategoryHighLowDto.BrandLowDto;
 import com.musinsa.domain.price.entitiy.CategoryLowPrice;
 import com.musinsa.domain.price.repository.CategoryLowPriceRepository;
 import java.util.List;
